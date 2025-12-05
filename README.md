@@ -2,6 +2,8 @@
 
 Projeto simples de um carrinho de compras, desenvolvido para praticar conceitos de lógica de programação com JavaScript.
 
+![telaInicial](./assets/image.png)
+
 ## 📝 Descrição
 
 Esta é uma aplicação web front-end que simula a funcionalidade básica de um carrinho de compras. O usuário pode selecionar produtos de uma lista, definir a quantidade desejada e adicioná-los ao carrinho. A aplicação calcula e exibe o valor total da compra em tempo real.

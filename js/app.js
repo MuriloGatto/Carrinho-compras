@@ -17,27 +17,36 @@ function adicionar() {
     // Obtém a quantidade desejada do produto do campo de entrada.
     let quantidadeProduto = document.getElementById('quantidade').value;
 
-    //calcular o preço sub total
-    // Calcula o subtotal para o produto adicionado (quantidade * valor unitário).
-    let preco = quantidadeProduto * valorProdutoUnitario;
+    // Valida se a quantidade inserida é um número maior que zero.
+    if (quantidadeProduto > 0) { // Se a quantidade for válida, executa o código abaixo.
+        // Calcular o preço subtotal.
+        // Calcula o subtotal para o produto adicionado (quantidade * valor unitário).
+        let preco = quantidadeProduto * valorProdutoUnitario;
 
-    //adicionar esse produto no carrinho
-    // Obtém o elemento da lista de produtos no carrinho.
-    let listaCarrinho = document.getElementById('lista-produtos');
-    // Adiciona o novo produto à lista de produtos no HTML.
-    listaCarrinho.innerHTML = listaCarrinho.innerHTML + `<section class="carrinho__produtos__produto">
-          <span class="texto-azul">${quantidadeProduto}x</span> ${nomeProduto} <span class="texto-azul">R$:${valorProdutoUnitario}</span>
-        </section>`;
+        // Adicionar o produto no carrinho.
+        // Obtém o elemento da lista de produtos no carrinho.
+        let listaCarrinho = document.getElementById('lista-produtos');
+        // Adiciona o novo produto à lista de produtos no HTML.
+        listaCarrinho.innerHTML = listaCarrinho.innerHTML + `<section class="carrinho__produtos__produto">
+              <span class="texto-azul">${quantidadeProduto}x</span> ${nomeProduto} <span class="texto-azul">R$:${valorProdutoUnitario}</span>
+            </section>`;
 
-    //atualizar o valor total
-    // Soma o subtotal do produto ao total geral do carrinho.
-    totalGeral = totalGeral + preco;
-    // Obtém o campo que exibe o valor total.
-    let campoTotal = document.getElementById('valor-total');
-    // Atualiza o texto do campo com o novo valor total formatado.
-    campoTotal.textContent = `R$ ${totalGeral}`;
-    // Reseta o campo de quantidade para 0 após adicionar o produto.
-    quantidadeProduto = document.getElementById('quantidade').value = 0;
+        // Atualizar o valor total.
+        // Soma o subtotal do produto ao total geral do carrinho.
+        totalGeral = totalGeral + preco;
+        // Obtém o campo que exibe o valor total.
+        let campoTotal = document.getElementById('valor-total');
+        // Atualiza o texto do campo com o novo valor total formatado.
+        campoTotal.textContent = `R$ ${totalGeral}`;
+        // Reseta o campo de quantidade para o valor padrão (vazio) após adicionar o produto.
+        quantidadeProduto = document.getElementById('quantidade').value = '';
+
+    } else { // Se a quantidade não for válida (0 ou menor).
+        // Exibe um alerta para o usuário informando que a quantidade é inválida.
+        alert('Adicionar quantidade valida!')
+    }
+
+
 }
 
 // Função chamada quando o botão "Limpar" é clicado.
